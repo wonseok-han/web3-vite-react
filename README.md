@@ -1,6 +1,6 @@
 # Web3 Wallet Connect 통합 모듈
 
-* web3-react 적용해 지갑을 연동하는 통합 모듈 프로젝트
+* web3-react 적용해 지갑을 연동하는 통합 모듈 개인 프로젝트
 
 ## 개발 환경
 
