@@ -101,10 +101,10 @@ module.exports = {
         format: null,
       },
       {
-        selector: ['typeLike'],
+        selector: ['interface', 'typeMethod'],
         format: ['PascalCase'],
         custom: {
-          regex: 'ImportMetaEnv|T|Props$',
+          regex: 'ImportMetaEnv|T|Props$|Type$',
           match: true,
         },
       },
@@ -122,6 +122,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
+    '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-argument': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
@@ -162,7 +163,9 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      typescript: './tsconfig.json',
+      typescript: {
+        project: 'tsconfig.json',
+      },
       node: {
         paths: ['src'],
         extensions: ['.ts', '.tsx', '.js', 'jsx'],
