@@ -190,14 +190,15 @@
     },
     {
       "selector": [
-        "typeLike"
+        "interface",
+        "typeMethod"
       ],
       "format": [
         "PascalCase"
       ],
       "custom": {
-        "regex": "ImportMetaEnv|T|Props$",
-        "match": true
+        "regex": "ImportMetaEnv|T|Props$|Type$",
+        "match": true,
       }
     },
     {
