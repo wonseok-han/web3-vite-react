@@ -18,7 +18,7 @@ const components = Object.keys(COMPONENTS).map((component) => {
 export default function Routes() {
   return (
     <RootRoutes>
-      {components.map(({ path, element }) => {
+      {components.map(({ element, path }) => {
         const Element = element as any;
 
         return (
