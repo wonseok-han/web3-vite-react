@@ -1,6 +1,8 @@
 import { Suspense } from 'react';
 import { Routes as RootRoutes, Route } from 'react-router-dom';
 
+import { convertToKebabCaseUrl } from '@libs/utils';
+
 const COMPONENTS: Record<string, { [key: string]: unknown }> = import.meta.glob(
   [`/src/pages/**/*`],
   { eager: true }
@@ -24,7 +26,7 @@ export default function Routes() {
         return (
           <Route
             key={path}
-            path={path}
+            path={convertToKebabCaseUrl(path)}
             Component={() => (
               <Suspense fallback={<div>loading...</div>}>
                 <Element />
