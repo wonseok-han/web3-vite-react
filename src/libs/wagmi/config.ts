@@ -3,7 +3,7 @@ import { mainnet, sepolia } from 'wagmi/chains';
 import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors';
 
 // https://wagmi.sh/react/getting-started
-export const config = createConfig({
+export const wagmiConfig = createConfig({
   chains: [mainnet, sepolia],
   connectors: [
     injected(),

@@ -1,12 +1,7 @@
-import { useAccount } from 'wagmi';
-
-import Profile from './Profile';
-import WalletOptions from './WalletOptions';
+import WagmiConnect from '@libs/wagmi/samples/WagmiConnect';
 
 const Home = () => {
-  const { isConnected } = useAccount();
-  if (isConnected) return <Profile />;
-  return <WalletOptions />;
+  return <WagmiConnect />;
 };
 
 export default Home;
