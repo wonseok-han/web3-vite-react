@@ -35,13 +35,24 @@ const WalletProfile = () => {
     error: GetEnsNameErrorType | null;
     status: 'pending' | 'error' | 'success';
   }) => {
-    if (status === 'pending') {
-      return <div>Loading ENS name</div>;
-    } else if (status === 'error') {
-      return <div>Error fetching ENS name: {error?.message}</div>;
-    } else {
-      return <div>ENS name: {isEmpty(data) ? 'undefined' : data}</div>;
-    }
+    return (
+      <div className="wagmiProfile__account_card">
+        {status === 'pending' ? (
+          <div className="wagmiProfile__account_card_item_wrap pending">
+            Loading ENS name
+          </div>
+        ) : status === 'error' ? (
+          <div className="wagmiProfile__account_card_item_wrap error">
+            Error fetching ENS name: {error?.message}
+          </div>
+        ) : (
+          <div className="wagmiProfile__account_card_item_wrap">
+            <label className="item_label">ENS name</label>
+            <p className="item_value">{isEmpty(data) ? 'undefined' : data}</p>
+          </div>
+        )}
+      </div>
+    );
   };
 
   const EnsAvatarComponent = ({
@@ -53,19 +64,38 @@ const WalletProfile = () => {
     error: GetEnsAvatarErrorType | null;
     status: 'pending' | 'error' | 'success';
   }) => {
-    if (status === 'pending') {
-      return <div>Loading ENS avatar</div>;
-    } else if (status === 'error') {
-      return <div>Error fetching ENS avatar: {error?.message}</div>;
-    } else {
-      return <div>ENS avatar: {isEmpty(data) ? 'undefined' : data}</div>;
-    }
+    return (
+      <div className="wagmiProfile__account_card">
+        {status === 'pending' ? (
+          <div className="wagmiProfile__account_card_item_wrap pending">
+            Loading ENS avatar
+          </div>
+        ) : status === 'error' ? (
+          <div className="wagmiProfile__account_card_item_wrap error">
+            Error fetching ENS avatar: {error?.message}
+          </div>
+        ) : (
+          <div className="wagmiProfile__account_card_item_wrap">
+            <label className="item_label">ENS avatar</label>
+            <p>{isEmpty(data) ? 'undefined' : data}</p>
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
-    <>
-      <div>Account: {address}</div>
-      <div>Chain ID: {chainId}</div>
+    <div className="wagmiProfile__wrap">
+      <div className="wagmiProfile__account_card">
+        <div className="wagmiProfile__account_card_item_wrap">
+          <label className="item_label">Account</label>
+          <p className="item_value">{address}</p>
+        </div>
+        <div className="wagmiProfile__account_card_item_wrap">
+          <label className="item_label">Chain ID</label>
+          <p className="item_value">{chainId}</p>
+        </div>
+      </div>
 
       <EnsNameComponent
         data={ensNameData}
@@ -78,8 +108,13 @@ const WalletProfile = () => {
         status={ensAvatarStatus}
       />
 
-      <button onClick={() => disconnect()}>Disconnect</button>
-    </>
+      <br />
+      <br />
+      <br />
+      <button className="button__default" onClick={() => disconnect()}>
+        Disconnect
+      </button>
+    </div>
   );
 };
 

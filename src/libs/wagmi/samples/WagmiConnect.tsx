@@ -6,6 +6,8 @@ import { memo, useEffect } from 'react';
 import WalletProfile from './WalletProfile';
 import { useWagmiAccount, useWagmiConnect } from '../hooks';
 
+import '../css/sample.scss';
+
 const WagmiConnect = () => {
   const { connect, connectors, data, error, isError, isPending, isSuccess } =
     useWagmiConnect();
@@ -37,24 +39,30 @@ const WagmiConnect = () => {
   }, [isSuccess, data]);
 
   return (
-    <>
+    <div className="wagmiConnect__wrap">
+      <span className="wagmiConnect__title">Wagmi Connect Sample</span>
       {!isConnected && (
-        <div>
-          {isPending && <div>loading...</div>}
-
-          {connectors.map((connector) => (
-            <div
-              key={connector.uid}
-              onClick={() => handleConnectClick(connector)}
-            >
-              {connector.name}
-            </div>
-          ))}
+        <div className="wagmiConnect__connect_box">
+          <div className="wagmiConnect__connect_flex_wrap">
+            {connectors.map((connector) => (
+              <div
+                key={connector.uid}
+                className="wagmiConnect__connect_item_box"
+                onClick={() => handleConnectClick(connector)}
+              >
+                {connector.name}
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
+      <div className={`loading_backdrop ${isPending ? 'active' : ''}`}>
+        <div className="loading_bar">Connecting...</div>
+      </div>
+
       {isConnected && <WalletProfile />}
-    </>
+    </div>
   );
 };
 
