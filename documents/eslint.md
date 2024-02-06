@@ -29,6 +29,7 @@
 * `react/jsx-handler-names`: 이벤트 핸들러의 이름에 `on` 또는 `handle` 접두사를 사용하도록 강제합니다.
 * `react/jsx-sort-props`: 컴포넌트의 props를 알파벳 순으로 정렬하도록 강제합니다. 함수와 멀티라인 props는 마지막에 위치하도록 설정됩니다.
 * `react/react-in-jsx-scope`: React 17 이상에서는 JSX를 사용할 때 React를 명시적으로 import할 필요가 없습니다. 이 규칙을 비활성화함으로써, 불필요한 React import를 제거할 수 있습니다.
+* `sort-destructure-keys/sort-destructure-keys`: 구조 분해 할당된 변수의 키를 알파벳 순으로 정렬하도록 강제합니다.
 * `@stylistic/js/comma-dangle`: 다중 라인에서 쉼표 뒤에 항상 쉼표를 붙이도록 강제합니다.
 * `@stylistic/js/object-curly-spacing`: 객체 리터럴의 중괄호 안에 항상 공백을 넣도록 강제합니다.
 * `@stylistic/js/quotes`: 문자열을 작성할 때 단일 따옴표를 사용하도록 강제합니다. 템플릿 리터럴은 허용됩니다.
@@ -104,6 +105,10 @@
     }
   ],
   "react/react-in-jsx-scope": "off",
+  "sort-destructure-keys/sort-destructure-keys": [
+    "error",
+    { "caseSensitive": false },
+  ],
   "@stylistic/js/comma-dangle": [
     "error",
     "only-multiline"

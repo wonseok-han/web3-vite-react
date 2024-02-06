@@ -24,6 +24,7 @@ module.exports = {
     'react',
     'prettier',
     'import',
+    'sort-destructure-keys',
   ],
   rules: {
     'import/no-named-as-default': 'off',
@@ -70,6 +71,10 @@ module.exports = {
       },
     ],
     'react/react-in-jsx-scope': 'off',
+    'sort-destructure-keys/sort-destructure-keys': [
+      'error',
+      { caseSensitive: false },
+    ],
     '@typescript-eslint/array-type': [
       'error',
       {
