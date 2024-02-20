@@ -24,19 +24,22 @@
     "baseUrl": "src",
     "paths": {
       "@assets/*": [
-        "./assets/*"
+        "assets/*"
       ],
       "@libs/*": [
-        "./libs/*"
+        "libs/*"
       ],
       "@types/*": [
-        "./types/*"
+        "types/*"
       ],
       "@router/*": [
-        "./router/*"
+        "router/*"
+      ],
+      "@components/*": [
+        "components/*"
       ],
       "@pages/*": [
-        "./pages/*"
+        "pages/*"
       ]
     }
   },
