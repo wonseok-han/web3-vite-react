@@ -1,0 +1,39 @@
+.tabs__wrap {
+  display: grid;
+  gap: 5px;
+  padding: 5px 5px;
+  height: 100%;
+
+  .tabs__btn_wrap {
+    display: flex;
+    gap: 2px;
+
+    .tabs__btn {
+      border-radius: 4px;
+      border: 1px solid #c6c6c6;
+      padding: 10px 10px;
+      width: fit-content;
+      font-weight: 600;
+      cursor: pointer;
+      
+      &:hover, &.active {
+        background-color: #000; 
+        color: #fff;
+      }
+    }
+  }
+
+  .tabs__contents_wrap {
+    border: 1px solid #c6c6c6;
+    padding: 10px 10px;
+    height: 100%;
+
+    .tabs__content {
+      display: none;
+
+      &.active {
+        display: inline;
+      }
+    }
+  }
+}
