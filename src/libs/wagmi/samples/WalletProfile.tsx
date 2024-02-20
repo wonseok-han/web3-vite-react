@@ -86,6 +86,10 @@ const WalletProfile = () => {
 
   return (
     <div className="wagmiProfile__wrap">
+      <button className="button__default" onClick={() => disconnect()}>
+        Disconnect
+      </button>
+
       <div className="wagmiProfile__account_card">
         <div className="wagmiProfile__account_card_item_wrap">
           <label className="item_label">Account</label>
@@ -107,13 +111,6 @@ const WalletProfile = () => {
         error={ensAvatarError}
         status={ensAvatarStatus}
       />
-
-      <br />
-      <br />
-      <br />
-      <button className="button__default" onClick={() => disconnect()}>
-        Disconnect
-      </button>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import type { Connector } from 'wagmi';
 import { debounce } from 'lodash';
 import { memo, useEffect } from 'react';
 
+import WagmiBalance from './WagmiBalance';
 import WalletProfile from './WalletProfile';
 import { useWagmiAccount, useWagmiConnect } from '../hooks';
 
@@ -62,6 +63,7 @@ const WagmiConnect = () => {
       </div>
 
       {isConnected && <WalletProfile />}
+      {isConnected && <WagmiBalance />}
     </div>
   );
 };
