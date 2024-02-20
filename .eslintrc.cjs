@@ -106,7 +106,7 @@ module.exports = {
         format: null,
       },
       {
-        selector: ['interface', 'typeMethod'],
+        selector: ['interface', 'type'],
         format: ['PascalCase'],
         custom: {
           regex: 'ImportMetaEnv|T|Props$|Type$',

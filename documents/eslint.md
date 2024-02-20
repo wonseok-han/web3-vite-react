@@ -196,7 +196,7 @@
     {
       "selector": [
         "interface",
-        "typeMethod"
+        "type"
       ],
       "format": [
         "PascalCase"
