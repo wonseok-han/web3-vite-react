@@ -1,5 +1,6 @@
 # Web3 Wallet Connect 통합 모듈
 
+* **Wagmi**에서 제공하는 라이브러리를 이용해 Wallet Connect 연동.
 * web3-react 적용해 지갑을 연동하는 통합 모듈 개인 프로젝트
 
 ## 개발 환경
@@ -77,10 +78,15 @@ npx lint-staged
 # Module Install
 npm install
 
-# Serer start
+# Server start
 npm run dev
 ```
 
 ## Reference
 
-* https://github.com/Uniswap/examples
+* **web3-react**
+  - https://github.com/Uniswap/examples
+
+* **Wagmi**
+  - https://docs.walletconnect.com/getting-started
+  - https://wagmi.sh/react/getting-started
