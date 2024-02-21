@@ -62,6 +62,12 @@ directoryExporter([
 ])
 ```
 
+```bash
+# 적용된 라이브러리
+npm install lodash
+npm install --save-dev @types/lodash chokidar minimatch
+```
+
 ## 코드 컨벤션
 
 프로젝트에서 개발자들의 일관된 개발 환경을 위해 하기 명시된 코드 규칙을 적용합니다.
