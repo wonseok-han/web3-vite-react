@@ -22,10 +22,13 @@ const WagmiBalance = () => {
       <div className={`loading_backdrop ${isPending ? 'active' : ''}`}>
         <div className="loading_bar">Loading...</div>
       </div>
+
       <div className="wagmiProfile__account_card">
         <div className="wagmiProfile__account_card_item_wrap">
           <label className="item_label">Balance</label>
-          <p className="item_value">{data?.value?.toString() || 0}</p>
+          <p className="item_value">
+            {data?.value?.toString() || error?.message}
+          </p>
         </div>
       </div>
     </div>
