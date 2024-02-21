@@ -1,8 +1,8 @@
 import '@assets/css/components/tabs.scss';
+
 import type { PropsWithChildren, ReactNode } from 'react';
 
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 interface TabsProps {
   config: Array<{
@@ -11,31 +11,14 @@ interface TabsProps {
     path?: string;
     content: ReactNode;
   }>;
-  isRoute?: boolean;
 }
 
-const Tabs = ({
-  children,
-  config,
-  isRoute = false,
-}: PropsWithChildren<TabsProps>) => {
+const Tabs = ({ config }: PropsWithChildren<TabsProps>) => {
   const [active, setActive] = useState<number>(config[0].id);
-  const navigate = useNavigate();
 
-  const handleTabClick = (changed: number, path: string) => {
-    if (isRoute) {
-      setActive(changed);
-      navigate(path);
-    } else {
-      setActive(changed);
-    }
+  const handleTabClick = (changed: number) => {
+    setActive(changed);
   };
-
-  useEffect(() => {
-    if (isRoute) {
-      navigate(config.find((item) => item.id === active)?.path || '');
-    }
-  }, [active, isRoute, config, navigate]);
 
   return (
     <div className="tabs__wrap">
@@ -44,23 +27,21 @@ const Tabs = ({
           <div
             key={`tab-${item.id}`}
             className={`tabs__btn ${item.id === active ? 'active' : ''}`}
-            onClick={() => handleTabClick(item.id, item.path || '')}
+            onClick={() => handleTabClick(item.id)}
           >
             {item.text}
           </div>
         ))}
       </div>
       <div className="tabs__contents_wrap">
-        {isRoute
-          ? children
-          : config.map((item) => (
-              <div
-                key={`tab-content-${item.id}`}
-                className={`tabs__content ${item.id === active ? 'active' : ''}`}
-              >
-                {item.content}
-              </div>
-            ))}
+        {config.map((item) => (
+          <div
+            key={`tab-content-${item.id}`}
+            className={`tabs__content ${item.id === active ? 'active' : ''}`}
+          >
+            {item.content}
+          </div>
+        ))}
       </div>
     </div>
   );
