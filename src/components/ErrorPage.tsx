@@ -8,9 +8,11 @@ interface ErrorPageProps {
 const ErrorPage = ({ error, onClick }: ErrorPageProps) => {
   return (
     <div className="errorPage__wrap">
+      <div className="errorPage__status">
+        {!error?.status && <p>{error.status}</p>}
+      </div>
       <div className="errorPage__title">
-        <label>Error:</label>
-        <p>{error?.message}</p>
+        <p>{`Error: ${error?.message}`}</p>
       </div>
       <div className="errorPage__content">
         <p>A failure has occurred. please try again.</p>
