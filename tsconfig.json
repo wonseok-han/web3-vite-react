@@ -35,6 +35,9 @@
       "@router/*": [
         "router/*"
       ],
+      "@components": [
+        "components"
+      ],
       "@components/*": [
         "components/*"
       ],

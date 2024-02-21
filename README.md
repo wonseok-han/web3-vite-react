@@ -17,6 +17,51 @@
 * **권장 확장 플러그인**: **[내용 참고](./documents/vscode.extensions.md)**
 * **Settings**: **[내용 참고](./documents/vscode.settings.md)**
 
+## Custom Plugin
+
+### directory-exporter-plugin
+
+* **핵심 코드**: **[plugins/directory-exporter-plugin.ts](/plugins/directory-exporter-plugin.ts)**
+
+`src/assets/img` 경로와 `src/components` 경로에 **named-export**를 적용할 수 있도록 index.ts 파일을 자동 생성하도록 플러그인을 적용합니다.
+
+이미지와 컴포넌트를 더욱 효율적으로 import 하여 개발 경험을 더욱 향상시킬 수 있도록 합니다.
+
+컴포넌트는 **named-export**를 적용해 커스텀한 명칭으로 alias를 적용할 수도 있습니다.
+
+```ts
+// default export
+// 해당 방식은 import 라인이 늘어날 뿐 아니라 alias 적용에도 번거로움이 있습니다.
+import HomeButton from '@components/HomeButton';
+import Loading from '@components/Loading';
+import Tabs from '@components/Tabs';
+
+const AliasLoading = Loading;
+```
+
+```ts
+// named export
+// 해당 방식은 performance 측면에서는 차이가 없을지 모르나 불필요한 import 라인 수를 줄이고 alias 적용을 더욱 간략하게 할 수 있습니다.
+import { HomeButton, Loading as AliasLoading, Tabs } from '@components';
+```
+
+```ts
+// vite.config.ts
+directoryExporter([
+  {
+    directoryPath: 'src/assets/img',
+    fileExtensions: ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico'],
+    namingConvention: 'camel',
+  },
+  {
+    directoryPath: 'src/components',
+    fileExtensions: ['.tsx'],
+    exportType: 'default_to_named',
+    isOmitExtension: true,
+  },
+])
+```
+
 ## 코드 컨벤션
 
 프로젝트에서 개발자들의 일관된 개발 환경을 위해 하기 명시된 코드 규칙을 적용합니다.

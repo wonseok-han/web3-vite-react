@@ -177,7 +177,7 @@ module.exports = {
         project: 'tsconfig.json',
       },
       node: {
-        paths: ['src', 'plugins'],
+        paths: ['src'],
         extensions: ['.ts', '.tsx', '.js', 'jsx'],
       },
     },
