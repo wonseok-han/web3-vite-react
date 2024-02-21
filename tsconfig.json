@@ -44,7 +44,8 @@
     }
   },
   "include": [
-    "src"
+    "src",
+    "plugins"
   ],
   "exclude": [
     "node_modules"

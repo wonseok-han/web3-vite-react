@@ -16,7 +16,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
+    project: 'tsconfig.json',
   },
   plugins: [
     'react-refresh',
@@ -106,10 +106,10 @@ module.exports = {
         format: null,
       },
       {
-        selector: ['interface', 'type'],
+        selector: ['interface', 'typeAlias'],
         format: ['PascalCase'],
         custom: {
-          regex: 'ImportMetaEnv|T|Props$|Type$',
+          regex: 'ImportMetaEnv|Props$|Type$',
           match: true,
         },
       },
@@ -166,13 +166,18 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['plugins/**/*'],
+    },
+  ],
   settings: {
     'import/resolver': {
       typescript: {
-        project: './tsconfig.json',
+        project: 'tsconfig.json',
       },
       node: {
-        paths: ['src'],
+        paths: ['src', 'plugins'],
         extensions: ['.ts', '.tsx', '.js', 'jsx'],
       },
     },

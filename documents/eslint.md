@@ -194,15 +194,12 @@
       "format": null
     },
     {
-      "selector": [
-        "interface",
-        "type"
-      ],
+      "selector": ["interface", "typeAlias"],
       "format": [
         "PascalCase"
       ],
       "custom": {
-        "regex": "ImportMetaEnv|T|Props$|Type$",
+        "regex": "ImportMetaEnv|Props$|Type$",
         "match": true,
       }
     },
