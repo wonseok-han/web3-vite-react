@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Routes as RootRoutes, Route } from 'react-router-dom';
 
 import { convertToKebabCaseUrl } from '@libs/utils';
+import NotFound from '@pages/NotFound';
 
 const COMPONENTS: Record<string, { [key: string]: unknown }> = import.meta.glob(
   [`/src/pages/**/*`],
@@ -35,6 +36,7 @@ export default function Routes() {
           />
         );
       })}
+      <Route element={<NotFound />} path="*" />
     </RootRoutes>
   );
 }
