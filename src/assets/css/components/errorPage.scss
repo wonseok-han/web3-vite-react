@@ -1,0 +1,19 @@
+.errorPage__wrap {
+  display: grid;
+  gap: 10px;
+
+  .errorPage__title {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  .errorPage__content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+}
