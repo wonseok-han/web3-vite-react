@@ -116,9 +116,8 @@ npx lint-staged
 
 ```json
 "lint-staged": {
-  "./src/**/*.{js,jsx,ts,tsx}": [
-    "eslint ./src --ext ts,tsx",
-    "prettier -w ./src/**/*.(js|jsx|ts|tsx)"
+  "*.{js,jsx,ts,tsx}": [
+    "eslint"
   ]
 }
 ```
