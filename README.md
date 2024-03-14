@@ -125,6 +125,16 @@ npx lint-staged
 
 ## Getting Started
 
+### 환경변수
+
+`.env.example` 파일을 참조해 파일을 생성하도록 합니다.
+
+* **.env.localhost**
+* **.env.development**
+* **.env.production**
+
+### 실행
+
 ```bash
 # Module Install
 npm install
