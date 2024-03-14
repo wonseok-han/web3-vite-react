@@ -52,6 +52,13 @@ instance.interceptors.request.use(
   }
 );
 
+/**
+ * 주어진 url로 GET 요청을 보냅니다.
+ *
+ * @param {string} url - 요청 url
+ * @param {AxiosRequestConfig} options - 요청 옵션
+ * @returns {Promise<AxiosResponse<T>>} 응답 데이터
+ */
 const axiosFetch = async <T = unknown>(
   url: string,
   query?: StringifiableRecord,
@@ -66,6 +73,14 @@ const axiosFetch = async <T = unknown>(
   );
 };
 
+/**
+ * 주어진 URI로 POST 요청을 보냅니다.
+ *
+ * @param {string} uri - 요청 URI
+ * @param {object} body - 요청 본문
+ * @param {AxiosRequestConfig} options - 요청 옵션
+ * @returns {Promise<AxiosResponse<T>>} 응답 데이터
+ */
 const axiosPost = async <T = unknown>(
   uri: string,
   body?: unknown,
@@ -74,6 +89,14 @@ const axiosPost = async <T = unknown>(
   return await instance.post(uri, body, { ...options });
 };
 
+/**
+ * 주어진 URI로 PUT 요청을 보냅니다.
+ *
+ * @param {string} uri - 요청 URI
+ * @param {object} body - 요청 본문
+ * @param {AxiosRequestConfig} options - 요청 옵션
+ * @returns {Promise<AxiosResponse<T>>} 응답 데이터
+ */
 const axiosPut = async <T = unknown>(
   uri: string,
   body?: unknown,
@@ -82,6 +105,13 @@ const axiosPut = async <T = unknown>(
   return await instance.put(uri, body, { ...options });
 };
 
+/**
+ * 주어진 URI로 DELETE 요청을 보냅니다.
+ *
+ * @param {string} uri - 요청 URI
+ * @param {AxiosRequestConfig} options - 요청 옵션
+ * @returns {Promise<AxiosResponse<T>>} 응답 데이터
+ */
 const axiosDelete = async <T = unknown>(
   uri: string,
   options?: AxiosRequestConfig
