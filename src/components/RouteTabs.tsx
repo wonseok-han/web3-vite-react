@@ -17,9 +17,12 @@ interface RouteTabsProps {
 }
 
 const RouteTabs = ({ children, config }: PropsWithChildren<RouteTabsProps>) => {
-  const [active, setActive] = useState<number>(config[0].id);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [active, setActive] = useState<number>(
+    config.find((item) => item?.path === location.pathname)?.id || config[0].id
+  );
 
   const handleTabClick = useCallback(
     (changed: number, path: string) => {
