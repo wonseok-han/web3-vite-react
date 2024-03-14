@@ -1,4 +1,4 @@
-import type { Connection } from './connections';
+import type { ConnectionProps } from './connections';
 
 import { initializeConnector } from '@web3-react/core';
 import { WalletConnect } from '@web3-react/walletconnect';
@@ -19,7 +19,7 @@ export function buildWalletConnectConnector() {
           onError: onConnectionError,
         })
     );
-  const walletConnectConnection: Connection = {
+  const walletConnectConnection: ConnectionProps = {
     connector: web3WalletConnect,
     hooks: web3WalletConnectHooks,
     type: ConnectionType.WALLET_CONNECT,

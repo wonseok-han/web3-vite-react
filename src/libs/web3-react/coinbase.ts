@@ -1,4 +1,4 @@
-import type { Connection } from './connections';
+import type { ConnectionProps } from './connections';
 
 import { CoinbaseWallet } from '@web3-react/coinbase-wallet';
 import { initializeConnector } from '@web3-react/core';
@@ -20,7 +20,7 @@ export function buildCoinbaseWalletConnector() {
           onError: onConnectionError,
         })
     );
-  const coinbaseWalletConnection: Connection = {
+  const coinbaseWalletConnection: ConnectionProps = {
     connector: web3CoinbaseWallet,
     hooks: web3CoinbaseWalletHooks,
     type: ConnectionType.COINBASE_WALLET,

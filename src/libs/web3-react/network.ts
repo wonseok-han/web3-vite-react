@@ -1,4 +1,4 @@
-import type { Connection } from './connections';
+import type { ConnectionProps } from './connections';
 
 import { initializeConnector } from '@web3-react/core';
 import { Network } from '@web3-react/network';
@@ -15,7 +15,7 @@ export function buildNetworkConnector() {
         defaultChainId: INPUT_CHAIN_ID,
       })
   );
-  const networkConnection: Connection = {
+  const networkConnection: ConnectionProps = {
     connector: web3Network,
     hooks: web3NetworkHooks,
     type: ConnectionType.NETWORK,

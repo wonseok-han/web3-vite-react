@@ -1,4 +1,4 @@
-import type { Connection } from './connections';
+import type { ConnectionProps } from './connections';
 
 import { initializeConnector } from '@web3-react/core';
 import { MetaMask } from '@web3-react/metamask';
@@ -10,7 +10,7 @@ export function buildInjectedConnector() {
     initializeConnector<MetaMask>(
       (actions) => new MetaMask({ actions, onError: onConnectionError })
     );
-  const injectedConnection: Connection = {
+  const injectedConnection: ConnectionProps = {
     connector: web3MetamaskWallet,
     hooks: web3MetamaskWalletHooks,
     type: ConnectionType.INJECTED,
