@@ -73,7 +73,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'sort-destructure-keys/sort-destructure-keys': [
       'error',
-      { caseSensitive: false },
+      { caseSensitive: true },
     ],
     '@typescript-eslint/array-type': [
       'error',
