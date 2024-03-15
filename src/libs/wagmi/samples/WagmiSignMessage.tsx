@@ -45,7 +45,7 @@ const WagmiSignMessage = () => {
           value={message}
           onChange={handleChange}
         />
-        <button className="button__default fit-width" onClick={handleClick}>
+        <button className="button__container fit-width" onClick={handleClick}>
           Sign Message
         </button>
       </div>

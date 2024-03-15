@@ -5,7 +5,7 @@ const HomeButton = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <button
-        className="button__default fit-width"
+        className="button__container fit-width"
         onClick={() => navigate('/')}
       >
         Home

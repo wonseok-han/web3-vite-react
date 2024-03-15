@@ -86,7 +86,7 @@ const WalletProfile = () => {
 
   return (
     <div className="wagmiProfile__wrap">
-      <button className="button__default" onClick={() => disconnect()}>
+      <button className="button__container" onClick={() => disconnect()}>
         Disconnect
       </button>
 

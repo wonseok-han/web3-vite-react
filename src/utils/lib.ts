@@ -28,4 +28,14 @@ const convertToKebabCaseUrl = (path: string) => {
   }, '');
 };
 
-export { convertToKebabCase, convertToKebabCaseUrl };
+/**
+ * 주어진 클래스명들을 연결합니다.
+ *
+ * @param {...string} classnames - 연결할 클래스명들
+ * @returns {string} 연결된 클래스명 문자열
+ */
+const classnames = (...classnames: Array<string>) => {
+  return classnames.join(' ');
+};
+
+export { convertToKebabCase, convertToKebabCaseUrl, classnames };
