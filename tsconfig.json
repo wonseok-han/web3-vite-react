@@ -28,23 +28,26 @@
       "@assets/*": [
         "assets/*"
       ],
-      "@libs/*": [
-        "libs/*"
-      ],
-      "@types/*": [
-        "types/*"
-      ],
-      "@router/*": [
-        "router/*"
-      ],
       "@components": [
         "components"
       ],
       "@components/*": [
         "components/*"
       ],
+      "@contexts/*": [
+        "contexts/*"
+      ],
+      "@libs/*": [
+        "libs/*"
+      ],
       "@pages/*": [
         "pages/*"
+      ],
+      "@types/*": [
+        "types/*"
+      ],
+      "@router/*": [
+        "router/*"
       ],
       "@utils/*": [
         "utils/*"
