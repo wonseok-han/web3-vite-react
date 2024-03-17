@@ -5,6 +5,7 @@ import { createContext, useContext, useState, useCallback } from 'react';
 
 import '@assets/css/components/dialog.scss';
 import { AlertDialog } from '@components/dialog/AlertDialog';
+import { classnames } from '@utils/lib';
 
 /**
  * useAlert에 적용될 타입입니다.
@@ -19,6 +20,7 @@ type AlertDialogType = {
   content?: ReactNode;
   modules?: Array<ButtonActionType>;
   customText?: string;
+  isBackdropClose?: boolean;
 };
 
 /**
@@ -44,7 +46,11 @@ const AlertContext = createContext<AlertFunctionType | undefined>(undefined);
  */
 export const AlertProvider = ({ children }: PropsWithChildren) => {
   const [alerts, setAlerts] = useState<
-    Array<AlertDialogType & { resolve: (value: boolean) => void }>
+    Array<
+      AlertDialogType & { callBack?: () => void } & {
+        resolve: (value: boolean) => void;
+      }
+    >
   >([]);
 
   /**
@@ -62,15 +68,29 @@ export const AlertProvider = ({ children }: PropsWithChildren) => {
 
   const renderAlerts = () => {
     return (
-      <div className={`dialog__backdrop ${alerts.length > 0 && 'active'}`}>
+      <div
+        className={classnames(
+          'dialog__background',
+          alerts.length > 0 ? 'active' : ''
+        )}
+      >
         {alerts.map((alert, index) => (
           <AlertDialog
-            key={index}
+            key={`alert-${index}`}
             content={alert.content}
             customText={alert.customText}
+            isBackdropClose={alert.isBackdropClose}
+            isOpen={true}
             modules={alert.modules}
             title={alert.title}
-            onClick={() => resolveAlert(index, true)}
+            onClick={() => {
+              alert?.callBack?.();
+              resolveAlert(index, true);
+            }}
+            onClose={() => {
+              alert?.callBack?.();
+              resolveAlert(index, true);
+            }}
           />
         ))}
       </div>

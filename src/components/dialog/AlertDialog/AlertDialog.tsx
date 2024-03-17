@@ -1,6 +1,8 @@
 import type { ButtonActionType } from './DialogButton';
 import type { ReactNode } from 'react';
 
+import { classnames } from '@utils/lib';
+
 import { DialogActions } from '.';
 
 /**
@@ -22,6 +24,7 @@ type AlertDialogProps = {
   isBackdropClose?: boolean;
   onClick?: () => void;
   onClose?: () => void;
+  isOpen: boolean;
 };
 
 /**
@@ -41,25 +44,38 @@ const AlertDialog = ({
   content,
   customText,
   isBackdropClose = true,
+  isOpen = false,
   modules = ['confirm'],
   onClick,
   onClose,
   title,
 }: AlertDialogProps) => {
+  const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+
+    if (isBackdropClose) {
+      onClose?.();
+    }
+  };
   return (
     <div
-      className="dialog__container"
-      onClick={() => isBackdropClose && onClose?.()}
+      className={classnames('dialog__backdrop', isOpen ? 'active' : '')}
+      onClick={handleBackdropClick}
     >
-      <div className="dialog__header">{title}</div>
-      <div className="dialog__content">{content}</div>
-      <div className="dialog__actions">
-        <DialogActions
-          customText={customText}
-          modules={modules}
-          onClick={onClick}
-          onClose={onClose}
-        />
+      <div
+        className="dialog__container"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="dialog__header">{title}</div>
+        <div className="dialog__content">{content}</div>
+        <div className="dialog__actions">
+          <DialogActions
+            customText={customText}
+            modules={modules}
+            onClick={onClick}
+            onClose={onClose}
+          />
+        </div>
       </div>
     </div>
   );
