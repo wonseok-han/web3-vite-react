@@ -38,6 +38,10 @@
     "editor.defaultFormatter": "vscode.css-language-features",
     "editor.formatOnSave": true
   },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features",
+    "editor.formatOnSave": true
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true
