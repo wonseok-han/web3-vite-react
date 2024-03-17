@@ -5,12 +5,12 @@ import {
 } from '../connections';
 import { METAMASK_URL } from '../constants';
 
-interface ConnectionOptionsProps {
+type ConnectionOptionsProps = {
   activeConnectionType: ConnectionType | null;
   isConnectionActive: boolean;
   onActivate: (connectionType: ConnectionType) => void;
   onDeactivate: (connectionType: null) => void;
-}
+};
 
 export const ConnectionOptions = ({
   activeConnectionType,

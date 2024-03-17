@@ -13,9 +13,9 @@ import { useAlert } from '@contexts/DialogProvider/AlertContext';
 
 import { ResponseHandlerProvider } from './ResponseHandlerContext';
 
-interface QueryClientProviderProps {
+type QueryClientProviderProps = {
   children: ReactElement;
-}
+};
 
 /**
  * React Query의 QueryClient를 설정하고 애플리케이션에 제공하는 컴포넌트입니다.

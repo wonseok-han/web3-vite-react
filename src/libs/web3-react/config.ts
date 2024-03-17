@@ -5,13 +5,13 @@ export enum Chain {
 }
 
 // Inputs that configure this example to run
-interface ExampleConfigType {
+type ExampleConfigType = {
   chain: Chain;
   rpc: {
     polygon: string;
     mainnet: string;
   };
-}
+};
 
 // Example Configuration
 export const CurrentConfig: ExampleConfigType = {

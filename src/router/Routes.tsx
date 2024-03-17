@@ -10,14 +10,16 @@ const COMPONENTS: Record<string, { [key: string]: unknown }> = import.meta.glob(
   { eager: true }
 );
 
-const components = Object.keys(COMPONENTS).map((component) => {
-  const path = component
-    .replace(/\/src\/pages|index|\.tsx$/g, '')
-    .replace(/\[\.{3}.+\]/, '*')
-    .replace(/\[([a-zA-Z0-9_]+)\]/g, ':$1');
+const components = Object.keys(COMPONENTS)
+  .filter((component) => !component.includes('components/'))
+  .map((component) => {
+    const path = component
+      .replace(/\/src\/pages|index|\.tsx$/g, '')
+      .replace(/\[\.{3}.+\]/, '*')
+      .replace(/\[([a-zA-Z0-9_]+)\]/g, ':$1');
 
-  return { path, element: COMPONENTS[component].default };
-});
+    return { path, element: COMPONENTS[component].default };
+  });
 
 export default function Routes() {
   return (

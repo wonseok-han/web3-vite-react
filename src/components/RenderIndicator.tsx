@@ -4,9 +4,9 @@ import { useLayoutEffect, useRef } from 'react';
 
 import { CONFIG } from '@utils/common/constants';
 
-interface RenderIndicatorProps {
+type RenderIndicatorProps = {
   children?: ReactNode;
-}
+};
 
 /**
  * 컴포넌트 렌더링 횟수를 시각적으로 표시하는 컴포넌트입니다.

@@ -8,13 +8,13 @@ import {
 } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-interface RouteTabsProps {
+type RouteTabsProps = {
   config: Array<{
     id: number;
     text: string;
     path?: string;
   }>;
-}
+};
 
 const RouteTabs = ({ children, config }: PropsWithChildren<RouteTabsProps>) => {
   const navigate = useNavigate();

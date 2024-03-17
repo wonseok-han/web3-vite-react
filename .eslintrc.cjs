@@ -82,6 +82,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/comma-dangle': ['error', 'only-multiline'],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/naming-convention': [
       'error',

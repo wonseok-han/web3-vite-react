@@ -22,10 +22,10 @@ type ButtonType = (typeof BUTTON_TYPE_MAP)[keyof typeof BUTTON_TYPE_MAP];
  * @property {ButtonType} type - 버튼의 유형입니다. 기본값은 'default'입니다.
  * @property {Function} onClick - 버튼이 클릭될 때 호출되는 함수입니다.
  */
-interface ButtonProps {
+type ButtonProps = {
   type?: ButtonType;
   onClick?: () => void;
-}
+};
 
 /**
  * `Button` 컴포넌트는 클릭 가능한 버튼 요소를 렌더링합니다.

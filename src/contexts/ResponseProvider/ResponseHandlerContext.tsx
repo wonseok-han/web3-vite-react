@@ -2,9 +2,9 @@ import type { ReactElement } from 'react';
 
 import { createContext, useContext } from 'react';
 
-interface ResponseHandlerProps {
+type ResponseHandlerProps = {
   onResponseError: (error: unknown) => void;
-}
+};
 
 const ResponseHandlerContext = createContext({} as ResponseHandlerProps);
 

@@ -27,12 +27,12 @@ export type ButtonActionType =
  * @property {Function} onClick - 버튼이 클릭될 때 호출되는 함수입니다.
  * @property {Function} onClose - 버튼이 닫힐 때 호출되는 함수입니다.
  */
-interface DialogButtonProps {
+type DialogButtonProps = {
   type: ButtonActionType;
   customText?: string;
   onClick?: () => void;
   onClose?: () => void;
-}
+};
 
 /**
  * `DialogButton` 컴포넌트는 대화 상자의 버튼을 렌더링합니다.

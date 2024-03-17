@@ -6,10 +6,10 @@ import '@assets/css/components/errorPage.scss';
  * @property {Function} onClick - "다시 시도" 버튼이 클릭될 때 호출되는 함수입니다.
  * @property {any} error - 오류 객체입니다. 이 객체는 status와 message 속성을 가질 수 있습니다.
  */
-interface ErrorPageProps {
+type ErrorPageProps = {
   onClick?: () => void;
   error?: any;
-}
+};
 
 /**
  * `ErrorPage` 컴포넌트는 오류 페이지를 렌더링합니다.

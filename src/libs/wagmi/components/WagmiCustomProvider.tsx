@@ -6,9 +6,9 @@ import { WagmiProvider } from 'wagmi';
 
 import { wagmiConfig } from '../config';
 
-interface WagmiCustomProviderProps {
+type WagmiCustomProviderProps = {
   queryClient: QueryClient;
-}
+};
 
 const WagmiCustomProvider = ({
   children,

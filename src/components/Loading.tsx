@@ -2,9 +2,9 @@ import type { PropsWithChildren } from 'react';
 
 import '@assets/css/components/loading.scss';
 
-interface LoadingProps {
+type LoadingProps = {
   isLoading: boolean;
-}
+};
 
 const Loading = ({ children, isLoading }: PropsWithChildren<LoadingProps>) => {
   return (

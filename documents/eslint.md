@@ -36,6 +36,7 @@
 * `@stylistic/js/space-before-blocks`: 블록(`{}`) 전에 항상 공백을 넣도록 강제합니다.
 * `@stylistic/js/space-before-function-paren`: 함수 괄호 전에 공백을 넣도록 강제합니다. 익명 함수와 화살표 함수는 항상 공백을 넣고, 명명된 함수는 공백을 넣지 않습니다.
 * `@typescript-eslint/array-type`: 배열 타입을 사용할 때 일반적인 배열 표기법(`Array<type>`)을 사용하도록 강제합니다.
+* `@typescript-eslint/consistent-type-definitions`: 타입을 정의할 때 키워드를 강제합니다.
 * `@typescript-eslint/consistent-type-imports`: 타입 임포트를 일관되게 사용하도록 강제합니다.
 * `@typescript-eslint/naming-convention`: 변수, 함수, 클래스 등의 이름을 지정할 때 특정 규칙을 따르도록 강제합니다. 예를 들어, 불리언 변수는 'is', 'should', 'has' 등으로 시작해야 합니다.
 * `@typescript-eslint/no-explicit-any`: `any` 타입의 사용을 금지합니다.
@@ -141,6 +142,7 @@
       "default": "generic"
     }
   ],
+  "@typescript-eslint/consistent-type-definitions": ["error", "type"],
   "@typescript-eslint/consistent-type-imports": "error",
   "@typescript-eslint/naming-convention": [
     "error",

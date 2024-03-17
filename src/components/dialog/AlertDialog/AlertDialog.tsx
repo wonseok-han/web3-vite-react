@@ -14,7 +14,7 @@ import { DialogActions } from '.';
  * @property {Function} onClick - 대화 상자의 버튼이 클릭될 때 호출되는 함수입니다.
  * @property {Function} onClose - 대화 상자가 닫힐 때 호출되는 함수입니다.
  */
-interface AlertDialogProps {
+type AlertDialogProps = {
   title?: ReactNode;
   content?: ReactNode;
   modules?: Array<ButtonActionType>;
@@ -22,7 +22,7 @@ interface AlertDialogProps {
   isBackdropClose?: boolean;
   onClick?: () => void;
   onClose?: () => void;
-}
+};
 
 /**
  * `AlertDialog` 컴포넌트는 알림 대화 상자를 렌더링합니다.

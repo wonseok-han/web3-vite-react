@@ -4,14 +4,14 @@ import type { PropsWithChildren, ReactNode } from 'react';
 
 import { useState } from 'react';
 
-interface TabsProps {
+type TabsProps = {
   config: Array<{
     id: number;
     text: string;
     path?: string;
     content: ReactNode;
   }>;
-}
+};
 
 const Tabs = ({ config }: PropsWithChildren<TabsProps>) => {
   const [active, setActive] = useState<number>(config[0].id);

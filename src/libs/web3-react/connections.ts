@@ -10,11 +10,11 @@ import { buildInjectedConnector } from './injected';
 import { buildNetworkConnector } from './network';
 import { buildWalletConnectConnector } from './wallet-connect';
 
-export interface ConnectionProps {
+export type ConnectionProps = {
   connector: Connector;
   hooks: Web3ReactHooks;
   type: ConnectionType;
-}
+};
 
 export enum ConnectionType {
   COINBASE_WALLET = 'COINBASE_WALLET',

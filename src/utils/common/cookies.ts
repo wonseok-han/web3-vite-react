@@ -2,7 +2,7 @@ import { Cookies } from 'react-cookie';
 
 const cookies = new Cookies();
 
-interface CookieSetOptionsType {
+type CookieSetOptionsType = {
   path?: string;
   expires?: Date;
   maxAge?: number;
@@ -11,7 +11,7 @@ interface CookieSetOptionsType {
   httpOnly?: boolean;
   sameSite?: boolean | 'none' | 'lax' | 'strict';
   partitioned?: boolean;
-}
+};
 
 /**
  * 주어진 키에 해당하는 쿠키 값을 반환합니다.

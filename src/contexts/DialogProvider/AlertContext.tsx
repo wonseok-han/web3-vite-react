@@ -14,12 +14,12 @@ import { AlertDialog } from '@components/dialog/AlertDialog';
  * @property {Array<ButtonActionType>} modules - 대화 상자의 버튼 액션 유형입니다.
  * @property {string} customText - 대화 상자의 사용자 정의 텍스트입니다.
  */
-interface AlertDialogType {
+type AlertDialogType = {
   title?: ReactNode;
   content?: ReactNode;
   modules?: Array<ButtonActionType>;
   customText?: string;
-}
+};
 
 /**
  * AlertContext의 기본 타입입니다.
