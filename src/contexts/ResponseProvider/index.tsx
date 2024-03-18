@@ -37,10 +37,10 @@ const ResponseProvider = ({ children }: QueryClientProviderProps) => {
     defaultOptions: {
       queries: {
         enabled: false,
-        throwOnError: true,
+        // throwOnError: true,
       },
       mutations: {
-        throwOnError: true,
+        // throwOnError: true,
       },
     },
     queryCache: new QueryCache({

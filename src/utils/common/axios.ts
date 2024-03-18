@@ -10,7 +10,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: `${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_API_POSTFIX_URL}`,
 });
 
 /**
