@@ -107,6 +107,11 @@ module.exports = {
         format: null,
       },
       {
+        selector: ['parameter'],
+        modifiers: ['destructured'],
+        format: ['camelCase, snake_case, PascalCase'],
+      },
+      {
         selector: ['interface', 'typeAlias'],
         format: ['PascalCase'],
         custom: {
