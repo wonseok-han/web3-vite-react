@@ -11,8 +11,9 @@
   "type": "module",
   "scripts": {
     "prepare": "husky",
-    "dev": "vite --host 0.0.0.0 --mode localhost --port 3000",
-    "build": "tsc && vite build",
+    "dev": "cross-env NODE_ENV=staging vite --host 0.0.0.0 --mode localhost --port 3000",
+    "prebuild-prod": "tsc --noEmit --skipLibCheck && eslint",
+    "build-prod": "cross-env NODE_ENV=production vite build --mode production",
     "preview": "vite preview",
     "tsc": "tsc --noEmit --skipLibCheck",
     "lint": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -56,6 +57,7 @@
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
     "chokidar": "^3.6.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -70,6 +72,8 @@
     "minimatch": "^9.0.3",
     "prettier": "^3.2.4",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-static-copy": "^1.0.1"
   }
 }
