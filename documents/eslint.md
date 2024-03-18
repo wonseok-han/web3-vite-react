@@ -193,8 +193,13 @@
       "modifiers": [
         "destructured"
       ],
-      "format": null
+      "format": []
     },
+      {
+        "selector": ["parameter"],
+        "modifiers": ["destructured"],
+        "format": ["camelCase", "snake_case", "PascalCase"],
+      },
     {
       "selector": ["interface", "typeAlias"],
       "format": [
