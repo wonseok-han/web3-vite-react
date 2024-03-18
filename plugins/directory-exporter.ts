@@ -8,14 +8,15 @@ import * as chokidar from 'chokidar';
 import debounce from 'lodash.debounce';
 import { minimatch } from 'minimatch';
 
-interface DirectoryExportOptionsType {
+type DirectoryExportOptionsType = {
   directoryPath: string;
   fileExtensions: Array<string>;
   namingConvention?: 'original' | 'camel' | 'snake';
   exportType?: 'default_to_named' | 'default' | 'named';
   isOmitExtension?: boolean;
   excludes?: Array<string>;
-}
+  rootDirectory?: string;
+};
 
 // 기본 옵션 값
 const DEFAULT_OPTIONS: Partial<DirectoryExportOptionsType> = {
@@ -115,12 +116,11 @@ function getModifiedExportName(
 //                       Directory Handling and File Generation
 // ====================================================================================
 
-interface GenerateExportStatementOptionsType
-  extends Omit<DirectoryExportOptionsType, 'directoryPath'> {
+type GenerateExportStatementOptionsType = {
   item: string;
   extname: string;
   filenames: Record<string, number>;
-}
+} & Omit<DirectoryExportOptionsType, 'directoryPath'>;
 
 /**
  * export 구문을 생성
@@ -258,7 +258,82 @@ function writeToIndexFile(directoryPath: string, indexContent: Array<string>) {
 function recursivelyGenerateIndexFiles(options: DirectoryExportOptionsType) {
   const directoryPath = options.directoryPath;
   const indexContent = handleDirectoryContent(options);
+
   writeToIndexFile(directoryPath, indexContent);
+
+  // rootDirectory 옵션에 경로가 존재할시 하위에 존재하는 디렉토리를 상위 디렉터리의 index.ts 파일로 업데이트
+  if (options.rootDirectory) {
+    updateParentIndexFile(
+      options.rootDirectory,
+      directoryPath,
+      options.fileExtensions
+    );
+  }
+}
+
+/**
+ * 상위 디렉터리의 index.ts 파일을 업데이트합니다.
+ *
+ * @param {string} parentPath - 상위 디렉터리의 경로
+ * @param {string} directoryPath - 현재 처리 중인 서브 디렉터리의 경로
+ * @param {Array<string>} indexContent - 현재 디렉터리의 index.ts 파일에 추가된 내용
+ */
+function updateParentIndexFile(
+  parentPath: string,
+  directoryPath: string,
+  fileExtensions: Array<string>
+) {
+  const relativePath = path.relative(parentPath, directoryPath);
+
+  if (!relativePath) return;
+
+  if (fileExtensions) {
+    let isExistFile = false;
+    const files = fs.readdirSync(directoryPath);
+
+    for (const file of files) {
+      if (file.lastIndexOf('.') > 0) {
+        const extension = file.slice(file.lastIndexOf('.'));
+        if (fileExtensions.includes(extension)) {
+          isExistFile = true;
+        }
+      }
+    }
+
+    if (!isExistFile) return;
+  }
+
+  const exportName = toValidJSVariableName(
+    toCamelCase(path.basename(relativePath))
+  );
+
+  const exportStatement = `export * as ${exportName} from './${relativePath}/index';\n`;
+
+  const parentIndexPath = path.join(parentPath, 'index.ts');
+
+  let parentIndexContent = '';
+  if (fs.existsSync(parentIndexPath)) {
+    parentIndexContent = fs.readFileSync(parentIndexPath, 'utf8');
+  }
+
+  // 이미 해당 export 구문이 있다면 추가하지 않음
+  if (parentIndexContent.includes(exportStatement)) {
+    console.log(
+      chalk.yellow(
+        `[directory-exporter] Export for '${relativePath}' already exists in ${parentIndexPath}`
+      )
+    );
+    return;
+  }
+
+  // 상위 디렉터리의 index.ts 파일에 export 구문 추가
+  parentIndexContent += exportStatement;
+  fs.writeFileSync(parentIndexPath, parentIndexContent);
+  console.log(
+    chalk.green(
+      `[directory-exporter] Updated '${parentIndexPath}' with export for '${relativePath}'.`
+    )
+  );
 }
 
 // ====================================================================================

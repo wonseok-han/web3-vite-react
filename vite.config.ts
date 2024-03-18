@@ -23,6 +23,20 @@ export default defineConfig({
         exportType: 'default_to_named',
         isOmitExtension: true,
       },
+      {
+        directoryPath: 'src/components',
+        fileExtensions: ['.ts'],
+        exportType: 'named',
+        isOmitExtension: true,
+        rootDirectory: 'src/components',
+      },
+      {
+        directoryPath: 'src/apis',
+        fileExtensions: ['.ts'],
+        exportType: 'named',
+        isOmitExtension: true,
+        rootDirectory: 'src/apis',
+      },
     ]),
   ],
 });
