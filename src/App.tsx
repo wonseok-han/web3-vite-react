@@ -1,15 +1,11 @@
-import { QueryClient, QueryErrorResetBoundary } from '@tanstack/react-query';
-import { ErrorBoundary } from 'react-error-boundary';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { BrowserRouter } from 'react-router-dom';
 
 import ResponseProvider from '@contexts/ResponseProvider';
-import WagmiCustomProvider from '@libs/wagmi/components/WagmiCustomProvider';
 import { Web3ContextProvider } from '@libs/web3-react/components/Web3ReactProvider';
 import Routes from 'router/Routes';
 
-import { ErrorPage, RouteTabs } from './components';
-
-const queryClient = new QueryClient();
+import { CustomErrorBoundary, ErrorPage, RouteTabs } from './components';
 
 const TABS_DATA = [
   {
@@ -32,18 +28,9 @@ const TABS_DATA = [
 const CommonComponent = () => {
   return (
     <RouteTabs config={TABS_DATA}>
-      <QueryErrorResetBoundary>
-        {({ reset }) => (
-          <ErrorBoundary
-            fallbackRender={({ error, resetErrorBoundary }) => (
-              <ErrorPage error={error} onClick={() => resetErrorBoundary()} />
-            )}
-            onReset={reset}
-          >
-            <Routes />
-          </ErrorBoundary>
-        )}
-      </QueryErrorResetBoundary>
+      <CustomErrorBoundary ErrorComponent={ErrorPage}>
+        <Routes />
+      </CustomErrorBoundary>
     </RouteTabs>
   );
 };
@@ -52,11 +39,14 @@ function App() {
   return (
     <BrowserRouter>
       <ResponseProvider>
-        <WagmiCustomProvider queryClient={queryClient}>
+        <>
+          <ReactQueryDevtools initialIsOpen={false} />
+          {/* <WagmiCustomProvider queryClient={queryClient}> */}
           <Web3ContextProvider>
             <CommonComponent />
           </Web3ContextProvider>
-        </WagmiCustomProvider>
+          {/* </WagmiCustomProvider> */}
+        </>
       </ResponseProvider>
     </BrowserRouter>
   );

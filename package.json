@@ -20,12 +20,11 @@
     "prettier": "prettier -w ./src/**/*.\"(js|jsx|ts|tsx)\""
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint"
-    ]
+    "*.{js,jsx,ts,tsx}": "eslint"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.18.0",
+    "@tanstack/react-query-devtools": "^5.28.4",
     "@web3-react/coinbase-wallet": "^8.2.3",
     "@web3-react/core": "^8.2.3",
     "@web3-react/gnosis-safe": "^8.2.4",
