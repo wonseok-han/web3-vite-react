@@ -66,8 +66,8 @@ const AlertDialog = ({
         className="dialog__container"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="dialog__header">{title}</div>
-        <div className="dialog__content">{content}</div>
+        {title && <div className="dialog__header">{title}</div>}
+        {content && <div className="dialog__content">{content}</div>}
         <div className="dialog__actions">
           <DialogActions
             customText={customText}
