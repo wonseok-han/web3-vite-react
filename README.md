@@ -21,7 +21,7 @@
 
 ### directory-exporter-plugin
 
-* **핵심 코드**: **[plugins/directory-exporter-plugin.ts](/plugins/directory-exporter-plugin.ts)**
+* **핵심 코드**: **[plugins/directory-exporter.ts](/plugins/directory-exporter.ts)**
 
 `src/assets/img` 경로와 `src/components` 경로에 **named-export**를 적용할 수 있도록 index.ts 파일을 자동 생성하도록 플러그인을 적용합니다.
 
@@ -140,6 +140,15 @@ npm install
 
 # Server start
 npm run dev
+```
+
+### 배포
+
+* Build 명령 후 생성되는 dist 폴더로 배포합니다.
+
+```bash
+# Build
+npm run build-prod
 ```
 
 ## Reference
