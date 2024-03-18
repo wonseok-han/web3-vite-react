@@ -33,32 +33,33 @@ export default defineConfig({
         },
       },
     }),
-    directoryExporter([
-      {
-        directoryPath: 'src/assets/img/*',
-        fileExtensions: ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico'],
-        namingConvention: 'camel',
-      },
-      {
-        directoryPath: 'src/components',
-        fileExtensions: ['.tsx'],
-        exportType: 'default_to_named',
-        isOmitExtension: true,
-      },
-      {
-        directoryPath: 'src/components',
-        fileExtensions: ['.ts'],
-        exportType: 'named',
-        isOmitExtension: true,
-        rootDirectory: 'src/components',
-      },
-      {
-        directoryPath: 'src/apis',
-        fileExtensions: ['.ts'],
-        exportType: 'named',
-        isOmitExtension: true,
-        rootDirectory: 'src/apis',
-      },
-    ]),
+    !isProduction &&
+      directoryExporter([
+        {
+          directoryPath: 'src/assets/img/*',
+          fileExtensions: ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico'],
+          namingConvention: 'camel',
+        },
+        {
+          directoryPath: 'src/components',
+          fileExtensions: ['.tsx'],
+          exportType: 'default_to_named',
+          isOmitExtension: true,
+        },
+        {
+          directoryPath: 'src/components',
+          fileExtensions: ['.ts'],
+          exportType: 'named',
+          isOmitExtension: true,
+          rootDirectory: 'src/components',
+        },
+        {
+          directoryPath: 'src/apis',
+          fileExtensions: ['.ts'],
+          exportType: 'named',
+          isOmitExtension: true,
+          rootDirectory: 'src/apis',
+        },
+      ]),
   ],
 });

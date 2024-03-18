@@ -398,7 +398,7 @@ export default function directoryExportPlugin(
 
         const debouncedGenerate = debounce(
           () => safeGenerateIndexFiles(option),
-          3000
+          5000
         );
         attachWatcherHandlers(watcher, debouncedGenerate);
 
