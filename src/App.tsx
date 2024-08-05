@@ -8,11 +8,11 @@ import Routes from 'router/Routes';
 import { CustomErrorBoundary, ErrorPage, RouteTabs } from './components';
 
 const TABS_DATA = [
-  {
-    id: 1,
-    text: 'Component Samples',
-    path: '/sample-page',
-  },
+  // {
+  //   id: 1,
+  //   text: 'Component Samples',
+  //   path: '/sample-page',
+  // },
   {
     id: 2,
     text: 'Wagmi',
@@ -41,11 +41,9 @@ function App() {
       <ResponseProvider>
         <>
           <ReactQueryDevtools initialIsOpen={false} />
-          {/* <WagmiCustomProvider queryClient={queryClient}> */}
           <Web3ContextProvider>
             <CommonComponent />
           </Web3ContextProvider>
-          {/* </WagmiCustomProvider> */}
         </>
       </ResponseProvider>
     </BrowserRouter>

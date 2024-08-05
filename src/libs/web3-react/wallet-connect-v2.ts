@@ -1,10 +1,12 @@
 import type { ConnectionProps } from './connections';
 
 import { initializeConnector } from '@web3-react/core';
-import { WalletConnect } from '@web3-react/walletconnect';
+import { WalletConnect } from '@web3-react/walletconnect-v2';
 
-import { ConnectionType, onConnectionError } from './connections';
-import { CHAIN_TO_URL_MAP } from './constants';
+import { TESTNET_CHAINS } from './chains';
+import { ConnectionType } from './connections';
+
+const [testnet, ...optionalChains] = Object.keys(TESTNET_CHAINS).map(Number);
 
 export function buildWalletConnectConnector() {
   const [web3WalletConnect, web3WalletConnectHooks] =
@@ -13,9 +15,11 @@ export function buildWalletConnectConnector() {
         new WalletConnect({
           actions,
           options: {
-            rpc: CHAIN_TO_URL_MAP,
+            projectId: import.meta.env.VITE_PROJECT_ID,
+            chains: [testnet],
+            optionalChains,
+            showQrModal: true,
           },
-          onError: onConnectionError,
         })
     );
   const walletConnectConnection: ConnectionProps = {

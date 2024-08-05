@@ -35,9 +35,9 @@ export const ConnectionOptions = ({
         onDeactivate={onDeactivate}
       />
     ) : (
-      <a href={METAMASK_URL}>
-        <button>Install Metamask</button>
-      </a>
+      <div className="web3React__connect_item_box">
+        <a href={METAMASK_URL}>Install Metamask</a>
+      </div>
     );
 
     const coinbaseWalletOption = (
@@ -67,11 +67,13 @@ export const ConnectionOptions = ({
     );
 
     return (
-      <>
-        {metaMaskOption}
-        {coinbaseWalletOption}
-        {walletConnectOption}
-      </>
+      <div className="web3React__connect_box">
+        <div className="web3React__connect_flex_wrap">
+          {metaMaskOption}
+          {walletConnectOption}
+          {coinbaseWalletOption}
+        </div>
+      </div>
     );
   }
 

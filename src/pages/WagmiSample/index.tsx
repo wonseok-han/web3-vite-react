@@ -30,9 +30,6 @@ const WagmiSample = () => {
             <option value="/wagmi-sample/sign-message-test">
               SignMessageTest
             </option>
-            <option value="/wagmi-sample/transaction-test">
-              TransactionTest
-            </option>
           </select>
         </div>
       )}

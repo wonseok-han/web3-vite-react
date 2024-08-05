@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-
-import '../css/sample.scss';
-import { useWagmiAccount, useWagmiBalance } from '../hooks';
+import { useWeb3React } from '@web3-react/core';
+import { useEffect, useState } from 'react';
 
 function formatValue(value: bigint, decimals: number) {
   const divisor = 10n ** BigInt(decimals); // 18 decimals에 대한 divisor 생성
@@ -15,37 +13,39 @@ function formatValue(value: bigint, decimals: number) {
   return `${integerPart}.${fractionalString}`;
 }
 
-const WagmiBalance = () => {
-  const { address, chainId } = useWagmiAccount();
-  const { data, error, isError, isPending } = useWagmiBalance({
-    address: address,
-    chainId: chainId,
-  });
+const Web3ReactBalance = () => {
+  const { account, isActivating, provider } = useWeb3React();
+  const [balance, setBalance] = useState('');
+
+  const handleBalance = () => {
+    if (account) {
+      provider?.getBalance(account).then((result) => {
+        console.log(result);
+        setBalance(formatValue(result.toBigInt(), 18));
+      });
+    }
+
+    return undefined;
+  };
 
   useEffect(() => {
-    if (isError) {
-      console.log('error::', error);
-    }
-  }, [isError, error]);
+    handleBalance();
+  }, []);
 
   return (
     <div className="wagmiProfile__wrap">
-      {/* <span className="wagmiTransaction__title">Wagmi Transaction Sample</span> */}
-      <div className={`loading_backdrop ${isPending ? 'active' : ''}`}>
+      <div className={`loading_backdrop ${isActivating ? 'active' : ''}`}>
         <div className="loading_bar">Loading...</div>
       </div>
 
       <div className="wagmiProfile__account_card">
         <div className="wagmiProfile__account_card_item_wrap">
           <label className="item_label">Balance</label>
-          <p className="item_value">
-            {`${data?.value && formatValue(data.value, data?.decimals)} ${data?.symbol}` ||
-              error?.message}
-          </p>
+          <p className="item_value">{balance}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default WagmiBalance;
+export default Web3ReactBalance;

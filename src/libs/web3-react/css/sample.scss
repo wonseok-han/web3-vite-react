@@ -1,0 +1,146 @@
+.input__default {
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.loading_backdrop {
+  background-color: #000;
+  opacity: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+
+  &.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loading_bar {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    user-select: none;
+    animation: fadeInOut 2s infinite;
+  }
+
+  @keyframes fadeInOut {
+
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+.web3React_wrap {
+  .web3React__title {
+    display: flex;
+    justify-content: center;
+    padding: 15px 5px 30px 5px;
+    font-weight: 800;
+    font-size: 2rem;
+  }
+
+  .web3React__connect_box {
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 15px 10px;
+    margin: 10px;
+
+    .web3React__connect_flex_wrap {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+
+      .web3React__connect_item_box {
+        cursor: pointer;
+        border-bottom: 1px solid lightgray;
+        padding: 15px 10px;
+        font-weight: 600;
+
+        &:hover {
+          color: skyblue;
+        }
+      }
+    }
+  }
+}
+
+.web3ReactProfile__wrap {
+  .web3ReactProfile__account_card {
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 15px 10px;
+    margin: 10px;
+    display: grid;
+    gap: 10px;
+
+    .web3ReactProfile__account_card_item_wrap {
+      display: flex;
+      gap: 15px;
+      font-size: 1.1rem;
+
+      .item_label {
+        text-align: right;
+        font-weight: 700;
+        min-width: 100px;
+
+      }
+
+      .item_value {
+        text-decoration: underline;
+      }
+
+      &.pending,
+      &.error {
+        display: flex;
+        justify-content: center;
+        font-size: 1rem;
+      }
+
+    }
+  }
+
+  .web3ReactProfile__connect_box {
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 15px 10px;
+    margin: 10px;
+
+    .web3ReactProfile__connect_flex_wrap {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+
+      .web3ReactProfile__connect_item_box {
+        cursor: pointer;
+        border-bottom: 1px solid lightgray;
+        padding: 15px 10px;
+        font-weight: 600;
+
+        &:hover {
+          color: skyblue;
+        }
+      }
+    }
+  }
+}
+
+.web3ReactTransaction__wrap {
+  .web3ReactTransaction__title {
+    display: flex;
+    justify-content: center;
+    padding: 15px 5px 30px 5px;
+    font-weight: 800;
+    font-size: 2rem;
+  }
+}

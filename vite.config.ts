@@ -11,6 +11,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 export default defineConfig({
   define: {
     Buffer: ['buffer', 'Buffer'],
+    global: {},
   },
   plugins: [
     react(),

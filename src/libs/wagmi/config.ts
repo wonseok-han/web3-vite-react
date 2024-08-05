@@ -1,19 +1,21 @@
 import { http, createConfig } from 'wagmi';
-import { mainnet, sepolia } from 'wagmi/chains';
+import { sepolia } from 'wagmi/chains';
 import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors';
 
 // https://wagmi.sh/react/getting-started
 export const wagmiConfig = createConfig({
-  chains: [mainnet, sepolia],
+  chains: [sepolia],
   connectors: [
     injected(),
-    walletConnect({ projectId: import.meta.env.VITE_PROJECT_ID }),
+    walletConnect({
+      projectId: import.meta.env.VITE_PROJECT_ID,
+      qrModalOptions: { themeMode: 'light' },
+    }),
     coinbaseWallet({
       appName: 'My Wagmi App',
     }),
   ],
   transports: {
-    [mainnet.id]: http(),
     [sepolia.id]: http(),
   },
 });

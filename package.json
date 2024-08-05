@@ -6,13 +6,12 @@
     "burn": "please-use-npm",
     "yarn": "please-use-npm",
     "pnpm": "please-use-npm",
-    "node": ">=18.17.1 <=20.11.0"
+    "node": ">=20.11.0 <=20.12.1"
   },
   "type": "module",
   "scripts": {
     "prepare": "husky",
     "dev": "vite --host 0.0.0.0 --mode localhost --port 3000",
-    "prebuild-prod": "tsc --noEmit --skipLibCheck && eslint",
     "build-prod": "cross-env NODE_ENV=production vite build --mode production",
     "preview": "vite preview",
     "tsc": "tsc --noEmit --skipLibCheck",
@@ -33,6 +32,7 @@
     "@web3-react/network": "^8.2.3",
     "@web3-react/types": "^8.2.3",
     "@web3-react/walletconnect": "^8.2.3",
+    "@web3-react/walletconnect-v2": "^8.5.1",
     "axios": "^1.6.7",
     "buffer": "^6.0.3",
     "dayjs": "^1.11.10",
@@ -46,7 +46,7 @@
     "sass": "^1.70.0",
     "viem": "^2.7.1",
     "vite-tsconfig-paths": "^4.3.1",
-    "wagmi": "^2.5.5"
+    "wagmi": "^2.12.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.202",

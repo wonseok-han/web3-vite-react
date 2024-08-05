@@ -1,15 +1,11 @@
 import type { AxiosError } from 'axios';
 
-import {
-  QueryClient,
-  QueryClientProvider as OriginQueryClientProvider,
-  QueryCache,
-  MutationCache,
-} from '@tanstack/react-query';
+import { QueryClient, QueryCache, MutationCache } from '@tanstack/react-query';
 import { type ReactElement } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useAlert } from '@contexts/DialogProvider/AlertContext';
+import WagmiCustomProvider from '@libs/wagmi/components/WagmiCustomProvider';
 
 import { ResponseHandlerProvider } from './ResponseHandlerContext';
 
@@ -104,11 +100,11 @@ const ResponseProvider = ({ children }: QueryClientProviderProps) => {
   }
 
   return (
-    <OriginQueryClientProvider client={queryClient}>
+    <WagmiCustomProvider queryClient={queryClient}>
       <ResponseHandlerProvider onResponseError={handleResponseError}>
         {children}
       </ResponseHandlerProvider>
-    </OriginQueryClientProvider>
+    </WagmiCustomProvider>
   );
 };
 

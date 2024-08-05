@@ -1,5 +1,7 @@
 import type { ConnectionType } from '../connections';
 
+import { useResponseHandler } from '@contexts/ResponseProvider/ResponseHandlerContext';
+
 import {
   getConnection,
   tryActivateConnector,
@@ -19,6 +21,8 @@ export const Option = ({
   onActivate: (connectionType: ConnectionType) => void;
   onDeactivate: (connectionType: null) => void;
 }) => {
+  const { onResponseError } = useResponseHandler();
+
   const onClick = async () => {
     if (isConnected) {
       const deactivation = await tryDeactivateConnector(
@@ -34,7 +38,7 @@ export const Option = ({
 
     const activation = await tryActivateConnector(
       getConnection(connectionType).connector
-    );
+    ).catch((error) => onResponseError(error));
     if (!activation) {
       return;
     }
@@ -43,10 +47,12 @@ export const Option = ({
   };
 
   return (
-    <div>
-      <button disabled={!isEnabled} onClick={onClick}>{`${
-        isConnected ? 'Disconnect' : 'Connect'
-      } ${connectionType}`}</button>
+    <div
+      aria-disabled={!isEnabled}
+      className="web3React__connect_item_box"
+      onClick={onClick}
+    >
+      {connectionType}
     </div>
   );
 };

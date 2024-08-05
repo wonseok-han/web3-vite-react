@@ -8,7 +8,7 @@ import { CHAIN_INFO } from './constants';
 import { buildGnosisSafeConnector } from './gnosis';
 import { buildInjectedConnector } from './injected';
 import { buildNetworkConnector } from './network';
-import { buildWalletConnectConnector } from './wallet-connect';
+import { buildWalletConnectConnector } from './wallet-connect-v2';
 
 export type ConnectionProps = {
   connector: Connector;
@@ -17,11 +17,11 @@ export type ConnectionProps = {
 };
 
 export enum ConnectionType {
-  COINBASE_WALLET = 'COINBASE_WALLET',
+  COINBASE_WALLET = 'Coinbase Wallet',
   GNOSIS_SAFE = 'GNOSIS_SAFE',
-  INJECTED = 'INJECTED',
+  INJECTED = 'Injected',
   NETWORK = 'NETWORK',
-  WALLET_CONNECT = 'WALLET_CONNECT',
+  WALLET_CONNECT = 'WalletConnect',
 }
 
 function getIsBraveWallet(): boolean {
