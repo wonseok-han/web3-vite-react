@@ -9,6 +9,9 @@ const WagmiSignMessage = () => {
   const [message, setMessage] = useState('');
 
   const handleClick = () => {
+    const isOk = confirm('Sign Message를 보내시겠습니까?');
+    if (!isOk) return;
+
     signMessage({ message: message });
   };
 
@@ -18,7 +21,7 @@ const WagmiSignMessage = () => {
 
   useEffect(() => {
     if (data) {
-      console.log('sign_transaction::', data);
+      console.log('sign_message::', data);
     }
   }, [data]);
 
@@ -29,27 +32,59 @@ const WagmiSignMessage = () => {
   }, [error]);
 
   return (
-    <>
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          justifyContent: 'center',
-          padding: '10px 5px',
-          width: '100%',
-        }}
-      >
-        <input
-          className="input__default"
-          placeholder="input message"
-          value={message}
-          onChange={handleChange}
-        />
-        <button className="button__container fit-width" onClick={handleClick}>
-          Sign Message
-        </button>
+    <div className="wagmiSignMessage__wrap">
+      <div className="wagmiSignMessage__card">
+        <div className="wagmiSignMessage__card_title">
+          <h2 className="item_label">Sign Message</h2>
+        </div>
+        <div className="wagmiSignMessage__card_content">
+          <input
+            className="input__default"
+            placeholder="input message"
+            style={{ flexGrow: 1 }}
+            value={message}
+            onChange={handleChange}
+          />
+          <button className="button__container fit-width" onClick={handleClick}>
+            Sign Message
+          </button>
+        </div>
+        <p
+          style={{
+            fontSize: '0.875rem',
+          }}
+        >
+          • 서명 메시지를 보내보세요.
+        </p>
+
+        <div
+          className="wagmiSignMessage__card_content"
+          style={{
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            gap: '10px',
+          }}
+        >
+          <span
+            className="wagmiSignMessage__card_title"
+            style={{
+              fontSize: '1rem',
+            }}
+          >
+            returned hash
+          </span>
+          <textarea
+            readOnly
+            className="input__default"
+            placeholder="input message"
+            value={data}
+            style={{
+              width: '100%',
+            }}
+          />
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

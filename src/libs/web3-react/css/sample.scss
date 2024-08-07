@@ -135,6 +135,30 @@
   }
 }
 
+.web3ReactSignMessage__wrap {
+  .web3ReactSignMessage__card {
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 15px 50px;
+    margin: 10px;
+    display: grid;
+    gap: 10px;
+
+    .web3ReactSignMessage__card_title {
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .web3ReactSignMessage__card_content {
+      display: flex;
+      gap: 5px;
+      margin-top: 20px;
+      align-items: center;
+    }
+  }
+}
+
 .web3ReactTransaction__wrap {
   .web3ReactTransaction__title {
     display: flex;

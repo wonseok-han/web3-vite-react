@@ -13,13 +13,13 @@
   height: 100%;
   z-index: 1;
   display: none;
-  
+
   &.active {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .loading_bar {
     color: #fff;
     font-size: 2rem;
@@ -29,8 +29,15 @@
   }
 
   @keyframes fadeInOut {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
   }
 }
 
@@ -59,7 +66,7 @@
         border-bottom: 1px solid lightgray;
         padding: 15px 10px;
         font-weight: 600;
-        
+
         &:hover {
           color: skyblue;
         }
@@ -86,7 +93,7 @@
         text-align: right;
         font-weight: 700;
         min-width: 100px;
-        
+
       }
 
       .item_value {
@@ -119,11 +126,35 @@
         border-bottom: 1px solid lightgray;
         padding: 15px 10px;
         font-weight: 600;
-        
+
         &:hover {
           color: skyblue;
         }
       }
+    }
+  }
+}
+
+.wagmiSignMessage__wrap {
+  .wagmiSignMessage__card {
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 15px 50px;
+    margin: 10px;
+    display: grid;
+    gap: 10px;
+
+    .wagmiSignMessage__card_title {
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .wagmiSignMessage__card_content {
+      display: flex;
+      gap: 5px;
+      margin-top: 20px;
+      align-items: center;
     }
   }
 }
