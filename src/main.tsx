@@ -7,6 +7,8 @@ import DialogProvider from '@contexts/DialogProvider/index.tsx';
 
 import App from './App.tsx';
 
+import './reset.scss';
+
 if (window?.ethereum) {
   window.ethereum.autoRefreshOnNetworkChange = false;
 }
