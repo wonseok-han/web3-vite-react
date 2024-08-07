@@ -3,6 +3,8 @@ import type { ChangeEvent } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { useState } from 'react';
 
+import '../css/sample.scss';
+
 const Web3ReactSignMessage = () => {
   const { provider } = useWeb3React();
   const [message, setMessage] = useState('');

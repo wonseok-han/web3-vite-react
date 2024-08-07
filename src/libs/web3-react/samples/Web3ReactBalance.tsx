@@ -1,6 +1,8 @@
 import { useWeb3React } from '@web3-react/core';
 import { useEffect, useState } from 'react';
 
+import '../css/sample.scss';
+
 function formatValue(value: bigint, decimals: number) {
   const divisor = 10n ** BigInt(decimals); // 18 decimals에 대한 divisor 생성
   const integerPart = value / divisor; // 정수 부분

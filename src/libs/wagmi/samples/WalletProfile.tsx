@@ -2,6 +2,8 @@ import { memo } from 'react';
 
 import { useWagmiAccount, useWagmiDisconnect } from '../hooks';
 
+import '../css/sample.scss';
+
 const WalletProfile = () => {
   const { disconnect } = useWagmiDisconnect();
   const { address, chainId } = useWagmiAccount();

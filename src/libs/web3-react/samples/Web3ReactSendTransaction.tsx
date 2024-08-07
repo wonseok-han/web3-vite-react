@@ -4,6 +4,8 @@ import { useWeb3React } from '@web3-react/core';
 import { useState } from 'react';
 import { parseEther } from 'viem';
 
+import '../css/sample.scss';
+
 const Web3ReactSendTransaction = () => {
   const { chainId, provider } = useWeb3React();
   const [toAddress, setToAddress] = useState('');

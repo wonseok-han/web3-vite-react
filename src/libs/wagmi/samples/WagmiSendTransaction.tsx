@@ -5,6 +5,8 @@ import { parseEther } from 'viem';
 
 import { useWagmiAccount, useWagmiSendTransaction } from '../hooks';
 
+import '../css/sample.scss';
+
 const WagmiSendTransaction = () => {
   const { address, chainId } = useWagmiAccount();
   const { data: hash, error, sendTransaction } = useWagmiSendTransaction();

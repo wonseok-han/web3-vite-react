@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 
 import { useWagmiSignMessage } from '../hooks';
 
+import '../css/sample.scss';
+
 const WagmiSignMessage = () => {
   const { data, error, signMessage } = useWagmiSignMessage();
   const [message, setMessage] = useState('');

@@ -2,6 +2,8 @@ import { useWeb3React } from '@web3-react/core';
 
 import { tryDeactivateConnector } from '../connections';
 
+import '../css/sample.scss';
+
 const WalletProfile = () => {
   const { account, chainId, connector } = useWeb3React();
 
